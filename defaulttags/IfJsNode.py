@@ -59,18 +59,17 @@ class IfJsNode(BaseJsNode):
     """
     expected_node_classname = 'IfNode'
     def _init_vars(self):
-        if_condition_var = self.django_node.var
+        if_condition_var = self.django_node.conditions_nodelists[0][0]
         if if_condition_var.id == 'literal':
             self.if_condition = self._extract_filter_expression(if_condition_var.value)
         else:
             self.if_condition = self._extract_filter_expression(if_condition_var.first.value) + \
                 if_condition_var.id + self._extract_filter_expression(if_condition_var.second.value)
     def _init_sub_nodes(self):
-        django_if_node = self.django_node
-        self.if_block = self.scan_section(django_if_node.nodelist_true)
+        self.if_block = self.scan_section(self.django_node.nodelist.pop[0])
         self.else_block = None
-        if django_if_node.nodelist_false:
-            self.else_block = self.scan_section(django_if_node.nodelist_false)        
+        if len(self.django_node.nodelist) > 1:
+            self.else_block = self.scan_section(self.django_node.nodelist[1])
     def generate_js_statement(self):
         rendered_if_block = 'if(' + self.if_condition + '){' + self._nodes_to_js_str(self.if_block) + '}'
         rendered_else_block = ''
