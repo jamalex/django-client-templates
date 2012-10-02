@@ -1,13 +1,13 @@
 #YZ JavaScript Django Template Compiler
 #Copyright (c) 2010 Weiss I Nicht <KeineAhnung@atliva.com> 
 #(sha-1: 90f01291285340bf03c2d41952c4b21b3d338907)
-from yz_js_django_tpl import BaseJsNode, JsProcessorRegistry
+from client_templates import BaseJsNode, JsProcessorRegistry
 
 class IfJsNode(BaseJsNode):
     """
     Converts if tag in django template into javascript expression
     Unit tests:
-    >>> from yz_js_django_tpl import TemplateJsNode, JsTplSettings
+    >>> from client_templates import TemplateJsNode, JsTplSettings
     >>> JsTplSettings.CONFIG['VERSAGER_MODE'] = False
     >>> ###############
     >>> #test django IfNode object behaves as expected
@@ -66,7 +66,7 @@ class IfJsNode(BaseJsNode):
             self.if_condition = self._extract_filter_expression(if_condition_var.first.value) + \
                 if_condition_var.id + self._extract_filter_expression(if_condition_var.second.value)
     def _init_sub_nodes(self):
-        self.if_block = self.scan_section(self.django_node.nodelist.pop[0])
+        self.if_block = self.scan_section(self.django_node.nodelist[0])
         self.else_block = None
         if len(self.django_node.nodelist) > 1:
             self.else_block = self.scan_section(self.django_node.nodelist[1])

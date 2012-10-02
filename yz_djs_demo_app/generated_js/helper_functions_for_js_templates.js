@@ -1,4 +1,4 @@
-//DO NOT EDIT! Your changes may be wiped as this is an auto generated JS file via yz_js_django_tpl
+//DO NOT EDIT! Your changes may be wiped as this is an auto generated JS file via client_templates
 
 //This file contains function definitions that will be used in the javascript template files.
 //Most of javascript functions defined here are for filter functionality

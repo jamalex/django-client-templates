@@ -14,9 +14,9 @@ import manage
 import settings
 
 #Load files necessary for our specific task
-from yz_js_django_tpl import generate_js_tpl_file, JsTplSettings
-from yz_js_django_tpl.customtags import *
-from yz_js_django_tpl.customfilters import *
+from client_templates import generate_js_tpl_file, JsTplSettings
+from client_templates.customtags import *
+from client_templates.customfilters import *
 import os
 
 template_generator_configs = {

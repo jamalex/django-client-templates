@@ -34,7 +34,7 @@ def generate_js_tpl_file():
     tpl_info_list = JsTplSettings.CONFIG['tpls']
     print "opening " + file_location + " to generate javascript template file"
     js_tpl_file = open(file_location,"w+")
-    js_tpl_file_contents = ["//Auto generated JS file for via yz_js_django_tpl\n"]    
+    js_tpl_file_contents = ["//Auto generated JS file for via client_templates\n"]    
     for tpl_path in tpl_info_list:
         tpl_info = tpl_info_list[tpl_path]
         tpl_var_list = None
@@ -53,7 +53,7 @@ def generate_js_tpl_file():
             js_tpl_file = open(file_location,"a")
     js_tpl_file.write("\n".join(js_tpl_file_contents))
     js_tpl_file.close()
-    print "yz_js_django_tpl::generate_js_tpl_file successfully finished generating javascript template file"
+    print "client_templates::generate_js_tpl_file successfully finished generating javascript template file"
     if JsTplSettings.CONFIG['js_dependencies_location']:
         filters_in_use = JsTplSettings.filters_in_use
         print "Checking to see if any javascript include files need to be added"
@@ -61,7 +61,7 @@ def generate_js_tpl_file():
             print "No function definitions need to be included"
         else:
             js_include_file = open(JsTplSettings.CONFIG['js_dependencies_location'],"w+")
-            file_contents = ["//DO NOT EDIT! Your changes may be wiped as this is an auto generated JS file via yz_js_django_tpl\n"]
+            file_contents = ["//DO NOT EDIT! Your changes may be wiped as this is an auto generated JS file via client_templates\n"]
             file_contents.append("//This file contains function definitions that will be used in the javascript template files.")
             file_contents.append("//Most of javascript functions defined here are for filter functionality")
             js_include_file.write("\n".join(file_contents) + "\n")
@@ -506,5 +506,5 @@ JsProcessorRegistry.register_js_node(TextJsNode)
 
 #loads all of the filters in the defaulttags and defaultfilters folders, this makes it easy to drop in new tags and filters
 #as they are being created
-from yz_js_django_tpl.defaulttags import *
-from yz_js_django_tpl.defaultfilters import *
+from client_templates.defaulttags import *
+from client_templates.defaultfilters import *

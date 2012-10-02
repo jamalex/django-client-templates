@@ -4,7 +4,7 @@ Copyright (c) 2010 Weiss I Nicht <KeineAhnung@atliva.com>
 
 To setup the demo:
 
-1. Make sure the yz_js_django_tpl package is in your project path, it should suffice to put it in your base project folder i.e. DJANGO_PROJECT_FOLDER/yz_js_django_tpl
+1. Make sure the client_templates package is in your project path, it should suffice to put it in your base project folder i.e. DJANGO_PROJECT_FOLDER/client_templates
 
 2. Move the yz_djs_demo_app folder to the project path as well, i.e. DJANGO_PROJECT_FOLDER/yz_djs_demo_app
 

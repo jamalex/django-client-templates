@@ -1,15 +1,15 @@
 #YZ JavaScript Django Template Compiler
 #Copyright (c) 2010 Weiss I Nicht <KeineAhnung@atliva.com> 
 #(sha-1: 90f01291285340bf03c2d41952c4b21b3d338907)
-from yz_js_django_tpl import BaseJsFilter, JsProcessorRegistry
+from client_templates import BaseJsFilter, JsProcessorRegistry
 
 class HashJsFilter(BaseJsFilter):
     """
     Converts the "hash" filter in django templates to native javascript hash look up, 
     i.e. {{exampleVar|hash:varB}}
     Examples:
-    >>> from yz_js_django_tpl import TemplateJsNode,JsTplSettings
-    >>> from yz_js_django_tpl.customfilters import *
+    >>> from client_templates import TemplateJsNode,JsTplSettings
+    >>> from client_templates.customfilters import *
     >>> JsTplSettings.CONFIG['VERSAGER_MODE'] = False
     >>> ###############
     >>> #test django "hash" filter

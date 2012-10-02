@@ -2,14 +2,14 @@
 #Copyright (c) 2010 Weiss I Nicht <KeineAhnung@atliva.com> 
 #(sha-1: 90f01291285340bf03c2d41952c4b21b3d338907)
 
-from yz_js_django_tpl import BaseJsNode, JsProcessorRegistry, JsTplSettings
+from client_templates import BaseJsNode, JsProcessorRegistry, JsTplSettings
 
 class ConstantIncludeJsNode(BaseJsNode):
     """
     Converts {% include %} tag in django into javascript expression
     
     Examples:
-    >>> from yz_js_django_tpl import TemplateJsNode, JsTplSettings
+    >>> from client_templates import TemplateJsNode, JsTplSettings
     >>> from django.template import Template
     >>> ###############
     >>> #This object is pretty hard to test using doc test as we need an entire environment to setup
